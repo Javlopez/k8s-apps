@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hello-express
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        application: hello-express
+    spec:
+      containers:
+        - name: hello-express
+          image: hello-express
+          imagePullPolicy: IfNotPresent
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "100Mi"
+          ports:
+          - containerPort: 8081
+
